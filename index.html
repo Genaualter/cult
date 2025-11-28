@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тайный Культ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Стартовый экран -->
+    <div class="modal" id="start-modal">
+        <div class="modal-content start-screen">
+            <h1>ТАЙНЫЙ КУЛЬТ</h1>
+            <p>Откройте запретные знания и достигните просветления через древние ритуалы.</p>
+            <button id="start-button">Играть</button>
+            <button id="tutorial-button">Обучение</button>
+        </div>
+    </div>
+    
+    <!-- Экран обучения -->
+    <div class="modal" id="tutorial-modal">
+        <div class="modal-content tutorial-screen">
+            <h1>ОБУЧЕНИЕ</h1>
+            <p>Используйте карты для проведения ритуалов. Перетаскивайте их по игровому полю.</p>
+            <p>Сначала найдите последователя и древнее знание, чтобы создать культ.</p>
+            <p>Только после создания культа вы сможете проводить ритуалы для достижения концовок.</p>
+            <button id="back-from-tutorial">Назад</button>
+        </div>
+    </div>
+    
+    <!-- Основной игровой интерфейс -->
+    <div class="container" id="game-container" style="display: none;">
+        <header>
+            <h1>ТАЙНЫЙ КУЛЬТ</h1>
+        </header>
+        
+        <div class="game-area">
+            <div class="desk-area" id="desk">
+                <!-- Карты будут добавляться сюда динамически -->
+            </div>
+            
+            <div class="actions-panel">
+                <h2>Действия</h2>
+                <div class="action" id="action-work">Работать</div>
+                <div class="action" id="action-study">Изучать</div>
+                <div class="action" id="action-dream">Сны</div>
+                <div class="action" id="action-talk">Беседовать</div>
+                <div class="action" id="action-explore">Исследовать</div>
+                <div class="action" id="action-ritual" style="display: none;">Ритуал</div>
+                <div class="action" id="action-rest">Отдых</div>
+                <div class="action" id="action-create-cult" style="display: none;">Создать культ</div>
+            </div>
+        </div>
+        
+        <div class="log">
+            <h2>Журнал событий</h2>
+            <div id="log-entries">
+                <div class="log-entry">Вы начинаете свой путь в тайных знаниях...</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Экран концовки -->
+    <div class="modal" id="ending-modal">
+        <div class="modal-content">
+            <h2 id="ending-title">Конец игры</h2>
+            <p class="ending-description" id="ending-description"></p>
+            <button id="back-to-start">Вернуться на главную</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

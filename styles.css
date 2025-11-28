@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', serif;
+}
+
+body {
+    background: #1a1a1a;
+    color: #d4af37;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.1"><path d="M20,20 L80,80 M80,20 L20,80" stroke="%23d4af37" stroke-width="2"/></svg>');
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.game-area {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+}
+
+.actions-panel {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    padding: 15px;
+    height: fit-content;
+}
+
+.actions-panel h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.action {
+    background: #2a2a2a;
+    border: 1px solid #d4af37;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.action:hover {
+    background: #3a3a3a;
+    transform: translateY(-2px);
+}
+
+.action.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action.disabled:hover {
+    background: #2a2a2a;
+    transform: none;
+}
+
+.desk-area {
+    min-height: 500px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+}
+
+.card {
+    width: 150px;
+    height: 200px;
+    background: #2a2a2a;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    cursor: move;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.card-header {
+    font-weight: bold;
+    border-bottom: 1px solid #d4af37;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.card-content {
+    font-size: 0.9rem;
+}
+
+.card.aspect {
+    border-color: #8b0000;
+}
+
+.card.follower {
+    border-color: #006400;
+}
+
+.card.location {
+    border-color: #4b0082;
+}
+
+.card.lore {
+    border-color: #ff8c00;
+}
+
+.card.resource {
+    border-color: #1e90ff;
+}
+
+.card.cult {
+    border-color: #d4af37;
+    border-width: 3px;
+}
+
+.timer {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(0,0,0,0.7);
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.log {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    padding: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.log h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.log-entry {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #1a1a1a;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+}
+
+.modal h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.modal p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.modal button {
+    background: #2a2a2a;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.modal button:hover {
+    background: #3a3a3a;
+}
+
+.start-screen, .tutorial-screen {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.start-screen h1, .tutorial-screen h1 {
+    margin-bottom: 30px;
+}
+
+.start-screen button, .tutorial-screen button {
+    background: #2a2a2a;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.start-screen button:hover, .tutorial-screen button:hover {
+    background: #3a3a3a;
+}
+
+.ending-description {
+    margin-bottom: 20px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.resource-value {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
